@@ -1,0 +1,4 @@
+<%=form_for @machine do |f|%>
+  <%=collection_select(:product, :id, Product.all, :id, :name)%>
+  <%=f.submit%>
+<%end %>

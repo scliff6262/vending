@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>New Machine at <%=@location.name%></h2>
+    <%= form_for [@location, @machine] do |f|%>
+      <%=f.submit "Create Machine"%>
+    <%end%>
+  </body>
+</html>

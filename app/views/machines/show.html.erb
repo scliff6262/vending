@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <h2>Machine <%=@machine.id%> @ <%=@machine.location.name%></h2>
+      <h4>Current Inventory</h4>
+      <ul>
+        <%@machine.total_inventory.each do |product|%>
+          <%product_type = product.keys.first.to_s%>
+          <li>
+            <%=product_type%>: <%=product[product_type]%>/<%=product[:limit]%>
+          </li>
+        <%end%>
+      </ul>
+      <h4>Add Product to Machine</h4>
+      <div class="errors-container"
+        <ul>
+          <%@machine.errors.full_messages.each do |msg|%>
+          <li><%=msg%></li>
+          <%end%>
+        </ul>
+        <ul>
+          <%@inventory.errors.full_messages.each do |msg|%>
+          <li><%=msg%></li>
+          <%end%>
+        </ul>
+      </div>
+      <%=render "machines/form"%>
+    </div>
+  </body>
+</html>
