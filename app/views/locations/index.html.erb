@@ -5,7 +5,9 @@
     <title></title>
   </head>
   <body>
+
     <h2>Locations:</h2>
+    <%=link_to "Add New Location", new_location_path%>
     <ul>
       <%@locations.each do |location|%>
         <li><%=link_to location.name, location_path(location)%> - <%=location.address%></li>

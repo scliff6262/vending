@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <%@product.errors.full_messages.each do |msg|%>
+        <li><%=msg%></li>
+      <%end%>
+    </ul>
+    <%=render "products/form"%>
+  </body>
+</html>
