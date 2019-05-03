@@ -6,7 +6,7 @@ class Machine < ApplicationRecord
 
   def machine_cannot_have_over_six_different_products
     if slots_filled?
-      errors.add(:products, "can only have different types")
+      errors.add(:products, "can only have 6 different types")
     end
   end
 

@@ -10,6 +10,11 @@
       <span>Address <%=@location.address%></span>
     </div>
     <div class="">
+      <ul>
+        <%@location.machines.each do |machine|%>
+          <li><%=link_to "Machine #{machine.id}", machine_path(machine)%></li>
+        <%end%>
+      </ul>
       <%=link_to "Add a Machine", new_location_machine_path(@location, Machine.new) %>
     </div>
   </body>

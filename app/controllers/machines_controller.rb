@@ -19,7 +19,7 @@ class MachinesController < ApplicationController
     @machine = Machine.find(params[:id])
     @inventory = Inventory.new(machine_id: @machine.id, product_id: params[:product][:id])
     # @machine.products << Product.find(params[:product][:id])
-    if @inventory.save
+    if @machine.valid? && @inventory.save
       redirect_to machine_path(@machine)
     else
       render "machines/show"
