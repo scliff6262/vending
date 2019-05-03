@@ -13,6 +13,7 @@
           <%product_type = product.keys.first.to_s%>
           <li>
             <%=product_type%>: <%=product[product_type]%>/<%=product[:limit]%>
+            <%=link_to "Remove Item", machine_inventory_path(@machine, product[:id]), method: 'delete'%>
           </li>
         <%end%>
       </ul>

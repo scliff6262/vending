@@ -6,7 +6,7 @@ class Machine < ApplicationRecord
 
   def machine_cannot_have_over_six_different_products
     if slots_filled?
-      errors.add(:products, "can only have 6 different types")
+      errors.add(:machine, "can only have 6 different product types")
     end
   end
 
@@ -19,9 +19,11 @@ class Machine < ApplicationRecord
 
     current_products = self.products
     current_item_types.map do |type|
+      product = Product.find_by(name: type)
       inventory = {}
       inventory[type] = current_products.count{|item| item.name === type}
-      inventory[:limit] = Product.find_by(name: type).limit
+      inventory[:limit] = product.limit
+      inventory[:id] = product.id
       inventory
     end
   end
