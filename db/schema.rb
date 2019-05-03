@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_033011) do
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
