@@ -31,5 +31,11 @@ class MachinesController < ApplicationController
     @machine = Machine.find(params[:id])
   end
 
+  def destroy
+    @machine = Machine.find(params[:id])
+    @machine.destroy
+    redirect_to locations_path
+  end
+
 
 end
