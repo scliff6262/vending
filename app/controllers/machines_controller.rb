@@ -18,7 +18,6 @@ class MachinesController < ApplicationController
   def update
     @machine = Machine.find(params[:id])
     @inventory = Inventory.new(machine_id: @machine.id, product_id: params[:product][:id])
-    # @machine.products << Product.find(params[:product][:id])
     if @machine.valid? && @inventory.save
       redirect_to machine_path(@machine)
     else

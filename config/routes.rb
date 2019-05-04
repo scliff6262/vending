@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :machines
   end
   resources :machines do
+    resources :products
     resources :inventories
   end
   resources :products

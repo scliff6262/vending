@@ -32,6 +32,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def destroy
+    # binding.pry
+    @machine = Machine.find(params[:machine_id])
+    @product = Product.find(params[:id])
+    @inventories = Inventory.where(product_id: @product.id).where(machine_id: @machine.id)
+    @inventories.destroy_all
+    redirect_to machine_path(@machine)
+  end
+
   private
 
   def product_params
