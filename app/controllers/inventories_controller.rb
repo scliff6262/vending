@@ -1,4 +1,5 @@
 class InventoriesController < ApplicationController
+   skip_before_action :verify_authenticity_token
 
   def destroy
     @machine = Machine.find(params[:machine_id])
@@ -9,6 +10,6 @@ class InventoriesController < ApplicationController
     if items_in_machine.length <= 2
       MachineMailer.product_low_email(@machine).deliver_now
     end
-    redirect_to machine_path(@machine)
+    render json: {}, status: :ok
   end
 end

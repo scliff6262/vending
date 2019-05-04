@@ -1,6 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'cliff80@rocketmail.com'
+  default from: 'seansappemail@gmail.com'
   layout 'mailer'
-
-
 end
